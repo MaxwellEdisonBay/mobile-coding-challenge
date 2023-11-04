@@ -55,6 +55,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":core-ui"))
+
     with(Dependencies.AndroidX.Core) {
         implementation(coreKtx)
     }

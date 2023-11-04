@@ -1,4 +1,4 @@
-package com.audiobooks.podcastapp.ui.theme
+package com.audiobooks.core_ui.theme
 
 import android.app.Activity
 import android.os.Build
