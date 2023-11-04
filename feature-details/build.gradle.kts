@@ -1,5 +1,6 @@
 import com.audiobooks.buildsrc.Dependencies
 import com.audiobooks.buildsrc.Configuration
+import com.audiobooks.buildsrc.Version
 
 plugins {
     id("com.android.library")
@@ -34,6 +35,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Version.composeCompiler
     }
 }
 

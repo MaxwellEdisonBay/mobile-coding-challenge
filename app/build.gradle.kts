@@ -1,5 +1,6 @@
 import com.audiobooks.buildsrc.Configuration
 import com.audiobooks.buildsrc.Dependencies
+import com.audiobooks.buildsrc.Version
 
 plugins {
     id("com.android.application")
@@ -45,7 +46,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = Version.composeCompiler
     }
     packaging {
         resources {

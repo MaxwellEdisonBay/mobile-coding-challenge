@@ -1,8 +1,8 @@
 package com.audiobooks.buildsrc
 
 object Configuration {
-    const val compileSdk = 33
-    const val targetSdk = 33
+    const val compileSdk = 34
+    const val targetSdk = 34
     const val minSdk = 26
 
     const val versionCode = 1
