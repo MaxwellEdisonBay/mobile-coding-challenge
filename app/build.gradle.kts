@@ -4,6 +4,8 @@ import com.audiobooks.buildsrc.Dependencies
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -33,11 +35,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -53,20 +55,39 @@ android {
 }
 
 dependencies {
+    with(Dependencies.AndroidX.Core) {
+        implementation(coreKtx)
+    }
 
-    implementation(Dependencies.AndroidX.Core.coreKtx)
-    implementation(Dependencies.AndroidX.Lifecycle.runtime)
-    implementation(Dependencies.AndroidX.Activity.compose)
-    implementation(platform(Dependencies.AndroidX.Compose.bom))
-    implementation(Dependencies.AndroidX.Compose.ui)
-    implementation(Dependencies.AndroidX.Compose.graphics)
-    implementation(Dependencies.AndroidX.Compose.toolingPreview)
-    implementation(Dependencies.AndroidX.Compose.material3)
+    with(Dependencies.AndroidX.Lifecycle) {
+        implementation(runtime)
+    }
+
+    with(Dependencies.AndroidX.Activity) {
+        implementation(compose)
+    }
+
+    with(Dependencies.AndroidX.Compose) {
+        implementation(platform(bom))
+        implementation(ui)
+        implementation(graphics)
+        implementation(toolingPreview)
+        implementation(material3)
+        androidTestImplementation(platform(bom))
+        androidTestImplementation(uiTest)
+        debugImplementation(tooling)
+        debugImplementation(uiTestManifest)
+    }
+
     testImplementation(Dependencies.JUnit.junit4)
-    androidTestImplementation(Dependencies.AndroidX.Test.extJunit)
-    androidTestImplementation(Dependencies.AndroidX.Test.espresso)
-    androidTestImplementation(platform(Dependencies.AndroidX.Compose.bom))
-    androidTestImplementation(Dependencies.AndroidX.Compose.uiTest)
-    debugImplementation(Dependencies.AndroidX.Compose.tooling)
-    debugImplementation(Dependencies.AndroidX.Compose.uiTestManifest)
+
+    with(Dependencies.AndroidX.Test) {
+        androidTestImplementation(extJunit)
+        androidTestImplementation(espresso)
+    }
+
+    with(Dependencies.Google.DaggerHilt) {
+        implementation(android)
+        kapt(compiler)
+    }
 }

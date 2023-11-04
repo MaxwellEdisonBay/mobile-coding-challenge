@@ -31,6 +31,13 @@ object Dependencies {
         }
     }
 
+    object Google {
+        object DaggerHilt {
+            const val android = "com.google.dagger:hilt-android:${Version.hilt}"
+            const val compiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
+        }
+    }
+
     object JUnit {
         const val junit4 = "junit:junit:4.13.2"
     }
