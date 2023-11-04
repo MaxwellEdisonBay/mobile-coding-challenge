@@ -25,6 +25,10 @@ object Dependencies {
             const val material3 = "androidx.compose.material3:material3"
         }
 
+        object Navigation {
+            const val compose = "androidx.navigation:navigation-compose:${Version.navigationCompose}"
+        }
+
         object Hilt {
             const val navigationCompose = "androidx.hilt:hilt-navigation-compose:1.0.0"
             const val compiler = "androidx.hilt:hilt-compiler:1.0.0"

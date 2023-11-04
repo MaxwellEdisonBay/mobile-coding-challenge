@@ -81,6 +81,8 @@ dependencies {
         debugImplementation(uiTestManifest)
     }
 
+    implementation(Dependencies.AndroidX.Navigation.compose)
+
     testImplementation(Dependencies.JUnit.junit4)
 
     with(Dependencies.AndroidX.Test) {
