@@ -59,6 +59,10 @@ dependencies {
         implementation(android)
         kapt(compiler)
     }
+    with(Dependencies.AndroidX.Hilt){
+        implementation(navigationCompose)
+        kapt(compiler)
+    }
     testImplementation(Dependencies.JUnit.junit4)
     with(Dependencies.AndroidX.Test) {
         androidTestImplementation(extJunit)
