@@ -25,6 +25,11 @@ object Dependencies {
             const val material3 = "androidx.compose.material3:material3"
         }
 
+        object Hilt {
+            const val navigationCompose = "androidx.hilt:hilt-navigation-compose:1.0.0"
+            const val compiler = "androidx.hilt:hilt-compiler:1.0.0"
+        }
+
         object Test {
             const val extJunit = "androidx.test.ext:junit:1.1.5"
             const val espresso = "androidx.test.espresso:espresso-core:3.5.1"
