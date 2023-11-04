@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-internal fun DashboardScreen(
+internal fun DetailsScreen(
     viewModel: DetailsViewModel = hiltViewModel()
 ) {
     val state = viewModel.detailsState.value

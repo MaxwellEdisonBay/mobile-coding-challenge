@@ -56,6 +56,8 @@ android {
 
 dependencies {
     implementation(project(":core-ui"))
+    implementation(project(":feature-dashboard"))
+    implementation(project(":feature-details"))
 
     with(Dependencies.AndroidX.Core) {
         implementation(coreKtx)

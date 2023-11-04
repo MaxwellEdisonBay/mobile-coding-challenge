@@ -55,6 +55,7 @@ dependencies {
         debugImplementation(tooling)
         debugImplementation(uiTestManifest)
     }
+    implementation(Dependencies.AndroidX.Navigation.compose)
     with(Dependencies.Google.DaggerHilt) {
         implementation(android)
         kapt(compiler)
