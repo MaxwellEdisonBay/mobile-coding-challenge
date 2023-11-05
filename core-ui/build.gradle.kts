@@ -59,6 +59,7 @@ dependencies {
         debugImplementation(uiTestManifest)
     }
     implementation(Dependencies.AndroidX.Navigation.compose)
+    implementation(Dependencies.Io.Coil.coilCompose)
     testImplementation(Dependencies.JUnit.junit4)
     with(Dependencies.AndroidX.Test) {
         androidTestImplementation(extJunit)

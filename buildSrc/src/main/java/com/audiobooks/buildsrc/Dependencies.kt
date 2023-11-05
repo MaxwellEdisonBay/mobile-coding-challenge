@@ -50,4 +50,9 @@ object Dependencies {
     object JUnit {
         const val junit4 = "junit:junit:4.13.2"
     }
+    object Io {
+        object Coil {
+            const val coilCompose = "io.coil-kt:coil-compose:2.5.0"
+        }
+    }
 }
