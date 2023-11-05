@@ -12,4 +12,8 @@
     <string name="core_ui_bottom_nav_techstack_name">Tech Stack</string>
     <string name="core_ui_bottom_nav_techstack_name_alt">Open Tech Stack Tab</string>
 
+    <!--    Card Component text-->
+    <string name="core_ui_card_image_alt">Podcast Image</string>
+    <string name="core_ui_card_favourite_text">Favourite</string>
+
 </resources>
