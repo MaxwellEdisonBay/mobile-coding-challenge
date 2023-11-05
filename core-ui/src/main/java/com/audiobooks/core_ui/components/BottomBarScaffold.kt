@@ -11,7 +11,7 @@ import com.audiobooks.core_ui.components.bottombar.BottomBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BaseScaffold(navController: NavController, content: @Composable () -> Unit) {
+fun BottomBarScaffold(navController: NavController, content: @Composable () -> Unit) {
     Scaffold(
         bottomBar = {
             BottomBar(navController = navController)
