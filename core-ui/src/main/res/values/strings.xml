@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    Top App Bar text-->
+    <string name="core_ui_top_nav_back_icon_alt">Tap to navigate back</string>
+    <string name="core_ui_top_nav_back_text">Back</string>
+
+    <!--    Bottom Navigation Bar text-->
     <string name="core_ui_bottom_nav_podcasts_name">Podcasts</string>
     <string name="core_ui_bottom_nav_podcasts_name_alt">Open Podcasts Tab</string>
     <string name="core_ui_bottom_nav_about_name">About</string>

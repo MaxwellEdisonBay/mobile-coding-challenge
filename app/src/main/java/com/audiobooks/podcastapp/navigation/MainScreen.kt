@@ -6,7 +6,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.audiobooks.core_ui.components.BottomBarScaffold
+import com.audiobooks.core_ui.components.bottombar.BottomBarScaffold
 
 @Composable
 internal fun MainScreen() {

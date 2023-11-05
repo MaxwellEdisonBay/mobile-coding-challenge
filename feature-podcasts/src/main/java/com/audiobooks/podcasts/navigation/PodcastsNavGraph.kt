@@ -14,10 +14,10 @@ fun NavGraphBuilder.injectPodcastsNavGraph(navController: NavController) {
         startDestination = PodcastsRoutes.Landing.route
     ) {
         composable(route = PodcastsRoutes.Landing.route) {
-            LandingScreen()
+            LandingScreen(navController)
         }
         composable(route = PodcastsRoutes.Details.route) {
-            DetailsScreen()
+            DetailsScreen(navController)
         }
     }
 }
