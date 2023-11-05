@@ -9,12 +9,11 @@ import com.audiobooks.podcasts.navigation.injectPodcastsNavGraph
 @Composable
 internal fun MainNavigationGraph(
     navHostController: NavHostController,
-    startDestination: String
 ) {
     NavHost(
         navController = navHostController,
         route = BottomNavGraphs.Root.route,
-        startDestination = startDestination
+        startDestination = BottomNavGraphs.Podcasts.route
     ) {
         injectPodcastsNavGraph(navHostController)
     }

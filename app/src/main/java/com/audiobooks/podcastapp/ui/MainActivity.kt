@@ -3,14 +3,8 @@ package com.audiobooks.podcastapp.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
-import androidx.navigation.compose.rememberNavController
 import com.audiobooks.core_ui.theme.PodcastAppTheme
-import com.audiobooks.podcastapp.navigation.Graphs
-import com.audiobooks.podcastapp.navigation.MainNavigationGraph
+import com.audiobooks.podcastapp.navigation.MainScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,15 +14,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PodcastAppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    MainNavigationGraph(
-                        navHostController = rememberNavController(),
-                        startDestination = Graphs.PODCASTS
-                    )
-                }
+                MainScreen()
             }
         }
     }
