@@ -5,7 +5,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 
-object AppTheme {
+object PodcastAppTheme {
 
     val colors: AppColors
         @Composable
@@ -21,13 +21,19 @@ object AppTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalDimensions.current
+
+    val shapes: AppShapes
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalShapes.current
 }
 
 @Composable
 fun PodcastAppTheme(
-    colors: AppColors = AppTheme.colors,
-    typography: AppTypography = AppTheme.typography,
-    dimensions: AppDimensions = AppTheme.dimensions,
+    colors: AppColors = PodcastAppTheme.colors,
+    typography: AppTypography = PodcastAppTheme.typography,
+    dimensions: AppDimensions = PodcastAppTheme.dimensions,
+    shapes: AppShapes = PodcastAppTheme.shapes,
     content: @Composable () -> Unit
 ) {
     // Explicitly creating a new object here so we don't mutate the initial [colors]
@@ -36,7 +42,8 @@ fun PodcastAppTheme(
     CompositionLocalProvider(
         LocalColors provides rememberedColors,
         LocalDimensions provides dimensions,
-        LocalTypography provides typography
+        LocalTypography provides typography,
+        LocalShapes provides shapes
     ) {
         content()
     }
