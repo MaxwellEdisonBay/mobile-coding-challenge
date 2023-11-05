@@ -50,9 +50,20 @@ object Dependencies {
     object JUnit {
         const val junit4 = "junit:junit:4.13.2"
     }
+
     object Io {
         object Coil {
             const val coilCompose = "io.coil-kt:coil-compose:2.5.0"
+        }
+    }
+
+    object SquareUp {
+        object Okhhtp3 {
+            const val okhttp = "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
+        }
+        object Retrofit2 {
+            const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+            const val converterGson = "com.squareup.retrofit2:converter-gson:2.9.0"
         }
     }
 }
