@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     MainNavigationGraph(
                         navHostController = rememberNavController(),
-                        startDestination = Graphs.DASHBOARD
+                        startDestination = Graphs.PODCASTS
                     )
                 }
             }

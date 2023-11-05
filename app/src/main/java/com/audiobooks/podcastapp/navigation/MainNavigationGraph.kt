@@ -3,8 +3,7 @@ package com.audiobooks.podcastapp.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.audiobooks.dashboard.navigation.injectDashboardNavGraph
-import com.audiobooks.details.navigation.injectDetailsNavGraph
+import com.audiobooks.podcasts.navigation.injectPodcastsNavGraph
 
 @Composable
 internal fun MainNavigationGraph(
@@ -16,13 +15,11 @@ internal fun MainNavigationGraph(
         route = Graphs.ROOT,
         startDestination = startDestination
     ) {
-        injectDashboardNavGraph(navHostController, Graphs.DASHBOARD)
-        injectDetailsNavGraph(navHostController, Graphs.DETAILS)
+        injectPodcastsNavGraph(navHostController, Graphs.PODCASTS)
     }
 }
 
 object Graphs {
     const val ROOT = "root_graph"
-    const val DASHBOARD = "dashboard_graph"
-    const val DETAILS = "details_graph"
+    const val PODCASTS = "podcasts_graph"
 }

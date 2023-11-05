@@ -15,8 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Podcast App"
 include(":app")
-include(":feature-dashboard")
-include(":feature-details")
+include(":feature-podcasts")
 include(":core")
 include(":core-networking")
 include(":core-caching")
