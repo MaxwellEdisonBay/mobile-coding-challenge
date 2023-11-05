@@ -8,13 +8,13 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-internal fun DashboardScreen(
+internal fun LandingScreen(
     viewModel: LandingViewModel = hiltViewModel()
 ) {
     val state = viewModel.landingState.value
 
     Box(modifier = Modifier.fillMaxSize()) {
         // TODO: Implement Dashboard UI
-        Text("Dashboard Screen")
+        Text("Landing Screen")
     }
 }

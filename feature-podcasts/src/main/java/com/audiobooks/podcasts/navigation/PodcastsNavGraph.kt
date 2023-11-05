@@ -4,8 +4,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.audiobooks.details.DetailsScreen
-import com.audiobooks.podcasts.landing.DashboardScreen
+import com.audiobooks.podcasts.details.DetailsScreen
+import com.audiobooks.podcasts.landing.LandingScreen
 
 fun NavGraphBuilder.injectPodcastsNavGraph(navController: NavController, graphRoute: String) {
     navigation(
@@ -13,7 +13,7 @@ fun NavGraphBuilder.injectPodcastsNavGraph(navController: NavController, graphRo
         startDestination = PodcastsRoutes.Landing.route
     ) {
         composable(route = PodcastsRoutes.Landing.route) {
-            DashboardScreen()
+            LandingScreen()
         }
         composable(route = PodcastsRoutes.Details.route) {
             DetailsScreen()
