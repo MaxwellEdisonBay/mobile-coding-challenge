@@ -30,6 +30,7 @@ fun BaseScaffold(
                 }
             )
         },
+        containerColor = PodcastAppTheme.colors.background,
         modifier = modifier
     ) { innerPadding ->
         Box(

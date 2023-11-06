@@ -25,10 +25,10 @@ import com.audiobooks.core_ui.theme.PodcastAppTheme
 
 @Composable
 fun MediumListImageCard(
-    title: String,
-    subTitle: String,
-    imageUrl: String,
     modifier: Modifier = Modifier,
+    title: String = "",
+    subTitle: String = "",
+    imageUrl: String = "",
     isFavorite: Boolean = false,
     isLoading: Boolean = false,
 ) {

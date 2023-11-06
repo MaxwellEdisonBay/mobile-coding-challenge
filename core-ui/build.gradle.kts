@@ -43,6 +43,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
     with(Dependencies.AndroidX.Core) {
         implementation(coreKtx)
     }

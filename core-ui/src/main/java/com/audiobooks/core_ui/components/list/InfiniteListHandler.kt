@@ -2,6 +2,7 @@ package com.audiobooks.core_ui.components.list
 
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.*
+import com.audiobooks.core.NUMBER_OF_PODCASTS_LOADED
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 @Composable
@@ -10,13 +11,14 @@ fun InfiniteListHandler(
     buffer: Int = 2,
     onLoadMore: () -> Unit
 ) {
+    var prev by remember { mutableIntStateOf(lazyListState.layoutInfo.totalItemsCount) }
     val loadMore = remember {
         derivedStateOf {
             val layoutInfo = lazyListState.layoutInfo
             val totalItems = layoutInfo.totalItemsCount
             val lastVisibleItemIndex = (layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0) + 1
 
-            lastVisibleItemIndex > (totalItems - buffer)
+            totalItems % NUMBER_OF_PODCASTS_LOADED == 0 && lastVisibleItemIndex > (totalItems - buffer)
         }
     }
 
@@ -24,7 +26,10 @@ fun InfiniteListHandler(
         snapshotFlow { loadMore.value }
             .distinctUntilChanged()
             .collect {
-                onLoadMore()
+                if (it) {
+                    prev = lazyListState.layoutInfo.totalItemsCount
+                    onLoadMore()
+                }
             }
     }
 }

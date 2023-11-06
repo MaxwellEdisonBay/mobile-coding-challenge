@@ -1,5 +1,6 @@
 package com.audiobooks.podcasts.landing
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.audiobooks.core.domain.PodcastsPage
@@ -25,7 +26,6 @@ internal class LandingViewModel @Inject constructor(
 ) : ViewModel() {
     private val _landingState = MutableStateFlow(LandingState())
     internal val landingState = _landingState.asStateFlow()
-
     init {
         if (_landingState.value.podcasts.isEmpty()) {
             getPodcasts(0)
@@ -44,6 +44,15 @@ internal class LandingViewModel @Inject constructor(
                 }
             }
             .launchIn(viewModelScope + SupervisorJob())
+    }
+
+    internal fun getPodcastsWithPagination() {
+        if (_landingState.value.podcasts.isNotEmpty()
+            && !_landingState.value.endReached
+        ) {
+            Log.d("TEST", "Fetching with pagination")
+            getPodcasts(_landingState.value.paginationOffset)
+        }
     }
 
     private fun onRequestSuccess(data: PodcastsPage) {

@@ -1,9 +1,11 @@
 package com.audiobooks.networking.repository
 
 import com.audiobooks.core.domain.PodcastsPage
+import com.audiobooks.networking.BuildConfig
 import com.audiobooks.networking.PodcastsApi
 import com.audiobooks.networking.util.Resource
 import com.audiobooks.networking.util.toPage
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -17,6 +19,10 @@ class PodcastsRepositoryImpl @Inject constructor(
         try {
             emit(Resource.Loading())
             val page = podcastsApi.getPodcasts(offset).toPage()
+            // Slow down the API to show shimmer loading in debug.
+            if (BuildConfig.DEBUG) {
+                delay(1000)
+            }
             emit(Resource.Success(page))
         } catch (e: HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "Unexpected Error"))
