@@ -4,8 +4,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavController
 import com.audiobooks.core_ui.components.topbar.TopAppBarConfig
 import com.audiobooks.core_ui.components.topbar.TopBarWithBackNavigation
@@ -20,18 +22,22 @@ fun BaseScaffold(
     topAppBarConfig: TopAppBarConfig = TopAppBarConfig(),
     content: @Composable () -> Unit
 ) {
+//    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+//    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
         topBar = {
             TopBarWithBackNavigation(
                 title = title,
                 config = topAppBarConfig,
+                scrollBehavior = scrollBehavior,
                 onBackPressed = {
                     navController.popBackStack()
                 }
             )
         },
         containerColor = PodcastAppTheme.colors.background,
-        modifier = modifier
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
     ) { innerPadding ->
         Box(
             modifier = Modifier

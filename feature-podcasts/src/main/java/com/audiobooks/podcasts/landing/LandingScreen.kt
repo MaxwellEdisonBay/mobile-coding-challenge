@@ -1,7 +1,6 @@
 package com.audiobooks.podcasts.landing
 
 import android.content.res.Configuration
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -21,6 +21,7 @@ import com.audiobooks.core_ui.components.card.MediumListImageCard
 import com.audiobooks.core_ui.components.list.InfiniteListHandler
 import com.audiobooks.core_ui.components.topbar.TopAppBarConfig
 import com.audiobooks.core_ui.theme.PodcastAppTheme
+import com.audiobooks.podcasts.R
 import com.audiobooks.podcasts.SharedViewModel
 import com.audiobooks.podcasts.landing.components.podcastListSkeletonLoader
 import com.audiobooks.podcasts.navigation.PodcastsRoutes
@@ -73,32 +74,30 @@ private fun LandingScreenContent(
 
     BaseScaffold(
         navController = navController,
+        title = stringResource(id = R.string.feature_podcast_landing_title),
         topAppBarConfig = TopAppBarConfig(isBackVisible = false, isLargeTitle = true)
     ) {
-        Column {
-            Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingLarge))
-            LazyColumn(state = lazyListState) {
-                if (isInitialLoading) {
-                    onInitialLoad()
-                } else {
-                    items(podcasts) {
-                        MediumListImageCard(
-                            title = it.title,
-                            subTitle = it.publisher,
-                            imageUrl = it.thumbnailUrl,
-                            isFavorite = isFavourite(it.id),
-                            onClick = { onPodcastItemClick(it) }
-                        )
-                        Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
-                    }
-                }
-                if (isPaginationLoading) {
-                    podcastListSkeletonLoader()
+        LazyColumn(state = lazyListState) {
+            if (isInitialLoading) {
+                onInitialLoad()
+            } else {
+                items(podcasts) {
+                    MediumListImageCard(
+                        title = it.title,
+                        subTitle = it.publisher,
+                        imageUrl = it.thumbnailUrl,
+                        isFavorite = isFavourite(it.id),
+                        onClick = { onPodcastItemClick(it) }
+                    )
+                    Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
                 }
             }
-            InfiniteListHandler(lazyListState = lazyListState) {
-                onPaginationLoad()
+            if (isPaginationLoading) {
+                podcastListSkeletonLoader()
             }
+        }
+        InfiniteListHandler(lazyListState = lazyListState) {
+            onPaginationLoad()
         }
     }
 }
@@ -114,7 +113,7 @@ private fun LandingScreenContentPreview() {
             onInitialLoad = {},
             onPaginationLoad = {},
             onPodcastItemClick = {},
-            isFavourite = {true}
+            isFavourite = { true }
         )
     }
 }
