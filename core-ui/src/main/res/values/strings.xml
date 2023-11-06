@@ -16,4 +16,7 @@
     <string name="core_ui_card_image_alt">Podcast Image</string>
     <string name="core_ui_card_favourite_text">Favourite</string>
 
+    <!--    Filled Tag Component text-->
+    <string name="core_ui_filled_tag_icon_alt">Favourite icon</string>
+
 </resources>
