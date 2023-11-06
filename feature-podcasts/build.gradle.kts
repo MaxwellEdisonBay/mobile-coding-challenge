@@ -46,6 +46,7 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":core-ui"))
+    implementation(project(":core-networking"))
     with(Dependencies.AndroidX.Core) {
         implementation(coreKtx)
     }
