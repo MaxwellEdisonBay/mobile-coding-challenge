@@ -8,6 +8,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -32,12 +33,32 @@ internal fun DetailsScreen(
 ) {
     val state = viewModel.detailsState.value
     val podcast = sharedViewModel.selectedPodcast
+    val id = podcast?.id.orEmpty()
+    val favourite = remember { sharedViewModel.favourite }
+    val isFavourite = sharedViewModel.isFavourite(id)
 
-    DetailsScreenContent(navController = navController, podcast = podcast)
+    DetailsScreenContent(
+        navController = navController,
+        podcast = podcast,
+        isFavourite = isFavourite,
+        onFavouriteClick = {
+            if (isFavourite) {
+                sharedViewModel.removeFromFavourite(id)
+//                favourite.remove(id)
+            } else {
+//                favourite.add(id)
+                sharedViewModel.addToFavourite(id)
+            }
+        })
 }
 
 @Composable
-private fun DetailsScreenContent(navController: NavController, podcast: Podcast?) {
+private fun DetailsScreenContent(
+    navController: NavController,
+    podcast: Podcast?,
+    isFavourite: Boolean = false,
+    onFavouriteClick: () -> Unit = {}
+) {
     BaseScaffold(navController = navController) {
         Column(
             modifier = Modifier
@@ -63,8 +84,8 @@ private fun DetailsScreenContent(navController: NavController, podcast: Podcast?
                     contentDescRes = R.string.feature_podcast_details_large_image_alt
                 )
                 Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
-                FavouriteButton(onClick = {
-
+                FavouriteButton(favourite = isFavourite, onClick = {
+                    onFavouriteClick()
                 })
                 Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
                 HtmlText(html = podcast.description)
@@ -78,6 +99,6 @@ private fun DetailsScreenContent(navController: NavController, podcast: Podcast?
 fun DetailsScreenPreview() {
     DetailsScreenContent(
         navController = rememberNavController(),
-        podcast = Podcast("Title", "Publisher", "", "", "Description")
+        podcast = Podcast("", "Title", "Publisher", "", "", "Description")
     )
 }

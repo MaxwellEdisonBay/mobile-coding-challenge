@@ -9,6 +9,7 @@ internal fun PodcastsListRs.toPage(): PodcastsPage {
         nextOffset = nextOffset ?: 0,
         podcasts = results.map {
             Podcast(
+                id = it.id.orEmpty(),
                 title = it.titleOriginal.orEmpty(),
                 publisher = it.podcastRs?.publisherOriginal.orEmpty(),
                 thumbnailUrl = it.thumbnail.orEmpty(),
