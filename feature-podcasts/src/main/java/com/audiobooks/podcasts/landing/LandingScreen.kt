@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -23,6 +24,7 @@ import com.audiobooks.core_ui.theme.PodcastAppTheme
 import com.audiobooks.podcasts.SharedViewModel
 import com.audiobooks.podcasts.landing.components.podcastListSkeletonLoader
 import com.audiobooks.podcasts.navigation.PodcastsRoutes
+import com.audiobooks.podcasts.utils.isFavourite
 
 @Composable
 internal fun LandingScreen(
@@ -31,6 +33,11 @@ internal fun LandingScreen(
     viewModel: LandingViewModel = hiltViewModel(),
 ) {
     val state = viewModel.landingState.collectAsState()
+    val favourite = remember { sharedViewModel.favourite }
+
+    val isFavourite: (id: String) -> Boolean = {
+        favourite.isFavourite(it)
+    }
 
     LandingScreenContent(
         navController = navController,
@@ -45,7 +52,8 @@ internal fun LandingScreen(
         onPodcastItemClick = {
             sharedViewModel.selectedPodcast = it
             navController.navigate(PodcastsRoutes.Details.route)
-        }
+        },
+        isFavourite = isFavourite
     )
 }
 
@@ -56,7 +64,8 @@ private fun LandingScreenContent(
     podcasts: List<Podcast>,
     onInitialLoad: () -> Unit,
     onPaginationLoad: () -> Unit,
-    onPodcastItemClick: (Podcast) -> Unit
+    onPodcastItemClick: (Podcast) -> Unit,
+    isFavourite: (id: String) -> Boolean
 ) {
     val isPaginationLoading = isLoading && podcasts.isNotEmpty()
     val isInitialLoading = isLoading && podcasts.isEmpty()
@@ -77,6 +86,7 @@ private fun LandingScreenContent(
                             title = it.title,
                             subTitle = it.publisher,
                             imageUrl = it.thumbnailUrl,
+                            isFavorite = isFavourite(it.id),
                             onClick = { onPodcastItemClick(it) }
                         )
                         Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
@@ -103,7 +113,8 @@ private fun LandingScreenContentPreview() {
             podcasts = emptyList(),
             onInitialLoad = {},
             onPaginationLoad = {},
-            onPodcastItemClick = {}
+            onPodcastItemClick = {},
+            isFavourite = {true}
         )
     }
 }

@@ -10,14 +10,4 @@ class SharedViewModel @Inject constructor(
 ) : ViewModel() {
     internal var favourite = mutableStateOf(emptyList<String>())
     internal var selectedPodcast : Podcast? = null
-
-    internal fun addToFavourite(id: String) {
-        favourite.value = favourite.value + listOf(id)
-    }
-
-    internal fun removeFromFavourite(id: String) {
-        favourite.value = favourite.value.filter { it != id }
-    }
-
-    internal fun isFavourite(id: String) = favourite.value.contains(id)
 }

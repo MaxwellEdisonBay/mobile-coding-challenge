@@ -24,6 +24,9 @@ import com.audiobooks.core_ui.theme.PodcastAppTheme
 import com.audiobooks.podcasts.R
 import com.audiobooks.podcasts.SharedViewModel
 import com.audiobooks.podcasts.details.components.FavouriteButton
+import com.audiobooks.podcasts.utils.addToFavourites
+import com.audiobooks.podcasts.utils.isFavourite
+import com.audiobooks.podcasts.utils.removeFromFavourites
 
 @Composable
 internal fun DetailsScreen(
@@ -35,7 +38,7 @@ internal fun DetailsScreen(
     val podcast = sharedViewModel.selectedPodcast
     val id = podcast?.id.orEmpty()
     val favourite = remember { sharedViewModel.favourite }
-    val isFavourite = sharedViewModel.isFavourite(id)
+    val isFavourite = favourite.isFavourite(id)
 
     DetailsScreenContent(
         navController = navController,
@@ -43,11 +46,9 @@ internal fun DetailsScreen(
         isFavourite = isFavourite,
         onFavouriteClick = {
             if (isFavourite) {
-                sharedViewModel.removeFromFavourite(id)
-//                favourite.remove(id)
+                favourite.removeFromFavourites(id)
             } else {
-//                favourite.add(id)
-                sharedViewModel.addToFavourite(id)
+                favourite.addToFavourites(id)
             }
         })
 }
