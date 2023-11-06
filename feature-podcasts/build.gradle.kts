@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.audiobooks.dashboard"
+    namespace = "com.audiobooks.podcasts"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="feature_podcast_details_large_image_alt">Podcast Large Image</string>
+    <string name="feature_podcast_details_favourite_button_favourite">Remove</string>
+    <string name="feature_podcast_details_favourite_button_add">Add to Favourites</string>
 </resources>
