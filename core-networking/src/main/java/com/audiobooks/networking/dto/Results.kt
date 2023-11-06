@@ -11,7 +11,7 @@ data class Results(
     @SerializedName("podcast") var podcastRs: PodcastRs? = PodcastRs(),
     @SerializedName("itunes_id") var itunesId: Int? = null,
     @SerializedName("thumbnail") var thumbnail: String? = null,
-    @SerializedName("pub_date_ms") var pubDateMs: Int? = null,
+    @SerializedName("pub_date_ms") var pubDateMs: Long? = null,
     @SerializedName("guid_from_rss") var guidFromRss: String? = null,
     @SerializedName("title_original") var titleOriginal: String? = null,
     @SerializedName("listennotes_url") var listennotesUrl: String? = null,

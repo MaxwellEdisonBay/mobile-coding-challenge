@@ -33,7 +33,7 @@ android {
             buildConfigField(
                 "String",
                 "PODCASTS_API_BASE_URL",
-                "\"https://listen-api.listennotes.com/api/v2/\""
+                "\"https://listen-api.listennotes.com/api/\""
             )
         }
         debug {
@@ -45,7 +45,7 @@ android {
             buildConfigField(
                 "String",
                 "PODCASTS_API_BASE_URL",
-                "\"https://listen-api-test.listennotes.com/api/v2/\""
+                "\"https://listen-api-test.listennotes.com/api/\""
             )
         }
     }
