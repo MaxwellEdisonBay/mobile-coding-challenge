@@ -1,6 +1,5 @@
 import com.audiobooks.buildsrc.Dependencies
 import com.audiobooks.buildsrc.Configuration
-import com.audiobooks.buildsrc.Version
 
 plugins {
     id("com.android.library")
@@ -45,6 +44,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation(project(":core-ui"))
     with(Dependencies.AndroidX.Core) {
         implementation(coreKtx)

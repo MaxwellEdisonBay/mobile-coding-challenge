@@ -21,11 +21,31 @@ android {
     }
 
     buildTypes {
+        buildFeatures {
+            buildConfig = true
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
+            )
+            buildConfigField(
+                "String",
+                "PODCASTS_API_BASE_URL",
+                "\"https://listen-api.listennotes.com/api/v2/\""
+            )
+        }
+        debug {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            buildConfigField(
+                "String",
+                "PODCASTS_API_BASE_URL",
+                "\"https://listen-api-test.listennotes.com/api/v2/\""
             )
         }
     }
@@ -36,15 +56,10 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Version.composeCompiler
-    }
 }
 
 dependencies {
+    implementation(project(":core"))
     with(Dependencies.AndroidX.Core) {
         implementation(coreKtx)
     }
