@@ -8,11 +8,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.audiobooks.core_ui.navigation.BottomNavGraphs
+import com.audiobooks.core_ui.theme.PodcastAppTheme
 
 @Composable
 internal fun BottomBar(navController: NavController) {
@@ -44,7 +46,7 @@ internal fun RowScope.BottomBarItem(
                 contentDescription = stringResource(id = screen.nameAlt)
             )
         },
-        label = { Text(stringResource(screen.name)) },
+        label = { Text(stringResource(screen.name), style = PodcastAppTheme.typography.caption, fontWeight = FontWeight.Bold) },
         selected = isSelected,
         onClick = {
             navController.navigate(screen.route) {
