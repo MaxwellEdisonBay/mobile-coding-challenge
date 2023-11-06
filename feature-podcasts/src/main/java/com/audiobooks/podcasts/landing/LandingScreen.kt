@@ -18,12 +18,16 @@ import com.audiobooks.core.domain.Podcast
 import com.audiobooks.core_ui.components.BaseScaffold
 import com.audiobooks.core_ui.components.card.MediumListImageCard
 import com.audiobooks.core_ui.components.list.InfiniteListHandler
+import com.audiobooks.core_ui.components.topbar.TopAppBarConfig
 import com.audiobooks.core_ui.theme.PodcastAppTheme
+import com.audiobooks.podcasts.SharedViewModel
 import com.audiobooks.podcasts.landing.components.podcastListSkeletonLoader
+import com.audiobooks.podcasts.navigation.PodcastsRoutes
 
 @Composable
 internal fun LandingScreen(
     navController: NavController,
+    sharedViewModel: SharedViewModel,
     viewModel: LandingViewModel = hiltViewModel(),
 ) {
     val state = viewModel.landingState.collectAsState()
@@ -37,6 +41,10 @@ internal fun LandingScreen(
         },
         onPaginationLoad = {
             viewModel.getPodcastsWithPagination()
+        },
+        onPodcastItemClick = {
+            sharedViewModel.selectedPodcast = it
+            navController.navigate(PodcastsRoutes.Details.route)
         }
     )
 }
@@ -47,14 +55,19 @@ private fun LandingScreenContent(
     isLoading: Boolean,
     podcasts: List<Podcast>,
     onInitialLoad: () -> Unit,
-    onPaginationLoad: () -> Unit
+    onPaginationLoad: () -> Unit,
+    onPodcastItemClick: (Podcast) -> Unit
 ) {
     val isPaginationLoading = isLoading && podcasts.isNotEmpty()
     val isInitialLoading = isLoading && podcasts.isEmpty()
     val lazyListState = rememberLazyListState()
 
-    BaseScaffold(navController = navController) {
+    BaseScaffold(
+        navController = navController,
+        topAppBarConfig = TopAppBarConfig(isBackVisible = false, isLargeTitle = true)
+    ) {
         Column {
+            Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingLarge))
             LazyColumn(state = lazyListState) {
                 if (isInitialLoading) {
                     onInitialLoad()
@@ -63,7 +76,8 @@ private fun LandingScreenContent(
                         MediumListImageCard(
                             title = it.title,
                             subTitle = it.publisher,
-                            imageUrl = it.thumbnailUrl
+                            imageUrl = it.thumbnailUrl,
+                            onClick = { onPodcastItemClick(it) }
                         )
                         Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
                     }
@@ -88,7 +102,8 @@ private fun LandingScreenContentPreview() {
             isLoading = true,
             podcasts = emptyList(),
             onInitialLoad = {},
-            onPaginationLoad = {}
+            onPaginationLoad = {},
+            onPodcastItemClick = {}
         )
     }
 }

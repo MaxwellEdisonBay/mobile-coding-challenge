@@ -12,6 +12,7 @@ internal fun PodcastsListRs.toPage(): PodcastsPage {
                 title = it.titleOriginal.orEmpty(),
                 publisher = it.podcastRs?.publisherOriginal.orEmpty(),
                 thumbnailUrl = it.thumbnail.orEmpty(),
+                largeImageUrl = it.image.orEmpty(),
                 description = it.descriptionOriginal.orEmpty()
             )
         }

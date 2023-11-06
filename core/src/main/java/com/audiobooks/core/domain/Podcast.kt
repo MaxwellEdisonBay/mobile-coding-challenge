@@ -4,5 +4,6 @@ data class Podcast(
     val title: String,
     val publisher: String,
     val thumbnailUrl: String,
+    val largeImageUrl: String,
     val description: String,
 )

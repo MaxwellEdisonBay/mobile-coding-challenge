@@ -1,6 +1,7 @@
 package com.audiobooks.core_ui.components.card
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,11 +32,13 @@ fun MediumListImageCard(
     imageUrl: String = "",
     isFavorite: Boolean = false,
     isLoading: Boolean = false,
+    onClick: () -> Unit = {},
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(PodcastAppTheme.colors.background),
+            .background(PodcastAppTheme.colors.background)
+            .clickable { onClick() },
         horizontalArrangement = Arrangement.Start
     ) {
         RoundedImageAsync(
@@ -88,6 +91,6 @@ fun MediumListImageCardPreview() {
         title = "The Indicator from Planet Money",
         subTitle = "NPR",
         imageUrl = "https://production.listennotes.com/podcasts/the-rough-cut-matt-feury-DEkF_8ybj6A-53MLh7NpAwm.300x300.jpg",
-        isFavorite = true
+        isFavorite = true,
     )
 }

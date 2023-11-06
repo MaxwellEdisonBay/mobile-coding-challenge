@@ -5,6 +5,8 @@ import com.audiobooks.buildsrc.Version
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -60,6 +62,14 @@ dependencies {
         debugImplementation(uiTestManifest)
     }
     implementation(Dependencies.AndroidX.Navigation.compose)
+    with(Dependencies.Google.DaggerHilt) {
+        implementation(android)
+        kapt(compiler)
+    }
+    with(Dependencies.AndroidX.Hilt){
+        implementation(navigationCompose)
+        kapt(compiler)
+    }
     implementation(Dependencies.Io.Coil.coilCompose)
     testImplementation(Dependencies.JUnit.junit4)
     with(Dependencies.AndroidX.Test) {
