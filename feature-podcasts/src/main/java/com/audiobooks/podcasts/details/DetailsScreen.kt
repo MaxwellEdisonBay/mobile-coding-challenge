@@ -18,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.audiobooks.core.domain.Podcast
@@ -30,29 +29,21 @@ import com.audiobooks.core_ui.util.objectSlideInVerticallyTransition
 import com.audiobooks.podcasts.R
 import com.audiobooks.podcasts.SharedViewModel
 import com.audiobooks.podcasts.details.components.FavouriteButton
-import com.audiobooks.podcasts.utils.addToFavourites
-import com.audiobooks.podcasts.utils.isFavourite
-import com.audiobooks.podcasts.utils.removeFromFavourites
 
 /**
  * Details Screen composable
  *
  * @param navController used for navigation
  * @param sharedViewModel vm for shared data between podcasts screens
- * @param viewModel vm for local screen data
  */
 @Composable
 internal fun DetailsScreen(
     navController: NavController,
     sharedViewModel: SharedViewModel,
-    viewModel: DetailsViewModel = hiltViewModel()
 ) {
-    // TODO: Implement state in the screen in future
-    val state = viewModel.detailsState.value
     val podcast = sharedViewModel.selectedPodcast
     val id = podcast?.id.orEmpty()
-    val favourite = remember { sharedViewModel.favourite }
-    val isFavourite = favourite.isFavourite(id)
+    val isFavourite = sharedViewModel.isFavourite(id)
 
     DetailsScreenContent(
         navController = navController,
@@ -60,11 +51,12 @@ internal fun DetailsScreen(
         isFavourite = isFavourite,
         onFavouriteClick = {
             if (isFavourite) {
-                favourite.removeFromFavourites(id)
+                sharedViewModel.removeFromFavourites(id)
             } else {
-                favourite.addToFavourites(id)
+                sharedViewModel.addToFavourites(id)
             }
-        })
+        }
+    )
 }
 
 /**

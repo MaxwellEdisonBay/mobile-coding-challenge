@@ -11,10 +11,10 @@ package com.audiobooks.core.domain
  * @property description podcast desc (with html markup)
  */
 data class Podcast(
-    val id: String,
-    val title: String,
-    val publisher: String,
-    val thumbnailUrl: String,
-    val largeImageUrl: String,
-    val description: String,
+    val id: String = "",
+    val title: String = "",
+    val publisher: String = "",
+    val thumbnailUrl: String = "",
+    val largeImageUrl: String = "",
+    val description: String = "",
 )

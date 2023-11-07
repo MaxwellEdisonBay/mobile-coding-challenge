@@ -3,6 +3,7 @@ package com.audiobooks.podcasts.landing
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.audiobooks.core.domain.Podcast
 import com.audiobooks.core.domain.PodcastsPage
 import com.audiobooks.networking.repository.PodcastsRepository
 import com.audiobooks.networking.util.Resource
@@ -18,7 +19,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.plus
 import javax.inject.Inject
 
-private const val MAX_PODCASTS_LOADED = 200
+internal const val MAX_PODCASTS_LOADED = 200
 
 /**
  * Landing Screen viewmodel
@@ -66,7 +67,7 @@ internal class LandingViewModel @Inject constructor(
         }
     }
 
-    private fun onRequestSuccess(data: PodcastsPage) {
+    internal fun onRequestSuccess(data: PodcastsPage) {
         _landingState.update {
             it.copy(
                 podcasts = it.podcasts + data.podcasts,
@@ -78,7 +79,7 @@ internal class LandingViewModel @Inject constructor(
         }
     }
 
-    private fun onRequestError(message: String?) {
+    internal fun onRequestError(message: String?) {
         _landingState.update {
             it.copy(
                 error = message ?: "Unexpected Error",
@@ -87,10 +88,24 @@ internal class LandingViewModel @Inject constructor(
         }
     }
 
-    private fun onRequestLoading() {
+    internal fun onRequestLoading() {
         _landingState.update {
             it.copy(
                 isLoading = true
+            )
+        }
+    }
+
+    internal fun updateState(
+        isLoading: Boolean = false,
+        podcasts: List<Podcast> = emptyList(),
+        error: String = ""
+    ) {
+        _landingState.update {
+            it.copy(
+                isLoading = isLoading,
+                podcasts = podcasts,
+                error = error
             )
         }
     }

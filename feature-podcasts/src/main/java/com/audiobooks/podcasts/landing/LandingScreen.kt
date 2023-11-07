@@ -8,7 +8,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,7 +24,6 @@ import com.audiobooks.podcasts.R
 import com.audiobooks.podcasts.SharedViewModel
 import com.audiobooks.podcasts.landing.components.podcastListSkeletonLoader
 import com.audiobooks.podcasts.navigation.PodcastsRoutes
-import com.audiobooks.podcasts.utils.isFavourite
 
 /**
  * Landing Screen composable
@@ -41,10 +39,8 @@ internal fun LandingScreen(
     viewModel: LandingViewModel = hiltViewModel(),
 ) {
     val state = viewModel.landingState.collectAsState()
-    val favourite = remember { sharedViewModel.favourite }
-
     val isFavourite: (id: String) -> Boolean = {
-        favourite.isFavourite(it)
+        sharedViewModel.isFavourite(it)
     }
 
     LandingScreenContent(
