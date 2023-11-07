@@ -1,5 +1,6 @@
 package com.audiobooks.podcasts.details
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,7 +9,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -21,6 +26,7 @@ import com.audiobooks.core_ui.components.BaseScaffold
 import com.audiobooks.core_ui.components.RoundedImageAsync
 import com.audiobooks.core_ui.components.text.HtmlText
 import com.audiobooks.core_ui.theme.PodcastAppTheme
+import com.audiobooks.core_ui.util.objectSlideInVerticallyTransition
 import com.audiobooks.podcasts.R
 import com.audiobooks.podcasts.SharedViewModel
 import com.audiobooks.podcasts.details.components.FavouriteButton
@@ -60,6 +66,10 @@ private fun DetailsScreenContent(
     isFavourite: Boolean = false,
     onFavouriteClick: () -> Unit = {}
 ) {
+    var isBottomAnimVisible by remember { mutableStateOf(false) }
+    LaunchedEffect(Unit) {
+        isBottomAnimVisible = true
+    }
     BaseScaffold(navController = navController) {
         Column(
             modifier = Modifier
@@ -85,11 +95,21 @@ private fun DetailsScreenContent(
                     contentDescRes = R.string.feature_podcast_details_large_image_alt
                 )
                 Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
-                FavouriteButton(favourite = isFavourite, onClick = {
-                    onFavouriteClick()
-                })
-                Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
-                HtmlText(html = podcast.description)
+                AnimatedVisibility(
+                    visible = isBottomAnimVisible,
+                    enter = objectSlideInVerticallyTransition
+                ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        FavouriteButton(
+                            favourite = isFavourite,
+                            onClick = {
+                                onFavouriteClick()
+                            }
+                        )
+                        Spacer(modifier = Modifier.height(PodcastAppTheme.dimensions.paddingMedium))
+                        HtmlText(html = podcast.description)
+                    }
+                }
             }
         }
     }
