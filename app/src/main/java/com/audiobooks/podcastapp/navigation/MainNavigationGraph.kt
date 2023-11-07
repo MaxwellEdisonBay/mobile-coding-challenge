@@ -8,6 +8,9 @@ import com.audiobooks.feature_about.navigation.injectAboutNavGraph
 import com.audiobooks.feature_techstack.navigation.injectTechStackNavGraph
 import com.audiobooks.podcasts.navigation.injectPodcastsNavGraph
 
+/**
+ * Root navigation graph. Injected directly to MainActivity
+ */
 @Composable
 internal fun MainNavigationGraph(
     navHostController: NavHostController,

@@ -34,12 +34,20 @@ import com.audiobooks.podcasts.utils.addToFavourites
 import com.audiobooks.podcasts.utils.isFavourite
 import com.audiobooks.podcasts.utils.removeFromFavourites
 
+/**
+ * Details Screen composable
+ *
+ * @param navController used for navigation
+ * @param sharedViewModel vm for shared data between podcasts screens
+ * @param viewModel vm for local screen data
+ */
 @Composable
 internal fun DetailsScreen(
     navController: NavController,
     sharedViewModel: SharedViewModel,
     viewModel: DetailsViewModel = hiltViewModel()
 ) {
+    // TODO: Implement state in the screen in future
     val state = viewModel.detailsState.value
     val podcast = sharedViewModel.selectedPodcast
     val id = podcast?.id.orEmpty()
@@ -59,6 +67,14 @@ internal fun DetailsScreen(
         })
 }
 
+/**
+ * Details Screen UI composable. It's used for better preview experience.
+ *
+ * @param navController navigation
+ * @param podcast current selected [Podcast]
+ * @param isFavourite is favourite state
+ * @param onFavouriteClick on favourite button click
+ */
 @Composable
 private fun DetailsScreenContent(
     navController: NavController,

@@ -14,10 +14,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 import com.audiobooks.podcasts.R
 
+/**
+ * Favourite button components
+ *
+ * @param favourite is button selected
+ * @param onClick onClick lambda
+ */
 @Composable
 internal fun FavouriteButton(favourite: Boolean, onClick: () -> Unit) {
     Button(
@@ -69,4 +76,16 @@ internal fun FavouriteButton(favourite: Boolean, onClick: () -> Unit) {
             style = PodcastAppTheme.typography.h3
         )
     }
+}
+
+@Composable
+@Preview
+private fun FavouriteButtonPreviewActive() {
+    FavouriteButton(favourite = true, onClick = {})
+}
+
+@Composable
+@Preview
+private fun FavouriteButtonPreviewUnactive() {
+    FavouriteButton(favourite = false, onClick = {})
 }

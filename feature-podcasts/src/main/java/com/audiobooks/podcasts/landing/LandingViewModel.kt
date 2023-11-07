@@ -20,18 +20,29 @@ import javax.inject.Inject
 
 private const val MAX_PODCASTS_LOADED = 200
 
+/**
+ * Landing Screen viewmodel
+ *
+ * @property podcastsRepository injected for podcasts api calls
+ */
 @HiltViewModel
 internal class LandingViewModel @Inject constructor(
     private val podcastsRepository: PodcastsRepository,
 ) : ViewModel() {
     private val _landingState = MutableStateFlow(LandingState())
     internal val landingState = _landingState.asStateFlow()
+
     init {
         if (_landingState.value.podcasts.isEmpty()) {
             getPodcasts(0)
         }
     }
 
+    /**
+     * Make podcasts call from the API
+     *
+     * @param offset current pagination offset
+     */
     internal fun getPodcasts(offset: Int = 0) {
         podcastsRepository.getPodcasts(offset)
             .distinctUntilChanged()
@@ -50,7 +61,7 @@ internal class LandingViewModel @Inject constructor(
         if (_landingState.value.podcasts.isNotEmpty()
             && !_landingState.value.endReached
         ) {
-            Log.d("TEST", "Fetching with pagination")
+            Log.d(LandingViewModel::class.java.simpleName, "Fetching with pagination")
             getPodcasts(_landingState.value.paginationOffset)
         }
     }

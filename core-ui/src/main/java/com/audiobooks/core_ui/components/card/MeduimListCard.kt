@@ -24,6 +24,18 @@ import com.audiobooks.core_ui.components.modifier.conditional
 import com.audiobooks.core_ui.components.modifier.shimmerEffect
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * Medium-sized card component.
+ * Supports skeleton loading state.
+ *
+ * [modifier] modifier
+ * [title] bigger title text
+ * [subTitle] italic subtitle
+ * [imageUrl] url for async image
+ * [isFavorite] indicates if favourite label is enabled
+ * [isLoading] indicates loading state
+ * [onClick] onClick event of a specific card
+ */
 @Composable
 fun MediumListImageCard(
     modifier: Modifier = Modifier,

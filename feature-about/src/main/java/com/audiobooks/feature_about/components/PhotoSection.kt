@@ -2,7 +2,6 @@ package com.audiobooks.feature_about.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,8 +20,11 @@ import com.audiobooks.core_ui.components.CircleImage
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 import com.audiobooks.feature_about.R
 
+/**
+ * Photo section on top of the About page
+ */
 @Composable
-internal fun ColumnScope.PhotoSection() {
+internal fun PhotoSection() {
     val uriHandler = LocalUriHandler.current
     Row(
         modifier = Modifier

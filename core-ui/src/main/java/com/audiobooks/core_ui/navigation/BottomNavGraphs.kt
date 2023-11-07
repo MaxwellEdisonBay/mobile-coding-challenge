@@ -11,6 +11,15 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.audiobooks.core_ui.R
 
+/**
+ * Routes for bottom nav graphs
+ *
+ * @param route route string value
+ * @param name name of the destination
+ * @param nameAlt content desc
+ * @param selectedIcon selected icon ui
+ * @param unSelectedIcon unselected icon ui
+ */
 sealed class BottomNavGraphs(
     val route: String,
     @StringRes val name: Int = R.string.core_ui_bottom_nav_podcasts_name,

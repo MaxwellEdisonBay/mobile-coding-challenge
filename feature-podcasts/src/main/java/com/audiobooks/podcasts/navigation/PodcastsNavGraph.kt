@@ -14,6 +14,11 @@ import com.audiobooks.podcasts.SharedViewModel
 import com.audiobooks.podcasts.details.DetailsScreen
 import com.audiobooks.podcasts.landing.LandingScreen
 
+/**
+ * Injects Podcasts routes to the main nav graph. Declare module routes here
+ *
+ * [navController] - controls navigation
+ */
 fun NavGraphBuilder.injectPodcastsNavGraph(navController: NavController) {
     navigation(
         route = BottomNavGraphs.Podcasts.route,

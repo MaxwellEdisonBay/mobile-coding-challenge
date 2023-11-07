@@ -2,6 +2,10 @@ package com.audiobooks.networking.dto
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Podcasts List DTO generated from Api JSON response
+ *
+ */
 data class PodcastsListRs(
     @SerializedName("took") var took: Double? = null,
     @SerializedName("count") var count: Int? = null,

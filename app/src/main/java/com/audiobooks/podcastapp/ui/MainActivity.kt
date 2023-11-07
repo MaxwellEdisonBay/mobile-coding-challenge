@@ -7,6 +7,9 @@ import com.audiobooks.core_ui.theme.PodcastAppTheme
 import com.audiobooks.podcastapp.navigation.MainScreen
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Main Activity for the single-activity app
+ */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

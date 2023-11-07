@@ -13,8 +13,11 @@ import com.audiobooks.core_ui.theme.PodcastAppTheme
 import com.audiobooks.feature_about.R
 import com.audiobooks.feature_about.domain.Experience
 
+/**
+ * Experience section component for details screen
+ */
 @Composable
-internal fun ColumnScope.ExperienceSection() {
+internal fun ExperienceSection() {
     val experiences = remember {
         listOf(
             Experience(

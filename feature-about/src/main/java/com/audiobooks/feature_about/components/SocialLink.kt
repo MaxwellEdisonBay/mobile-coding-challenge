@@ -17,6 +17,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * Social media links component
+ *
+ * @param iconRes icon drawable
+ * @param textRes text resource
+ * @param tint icon tint
+ * @param onClick lambda on specific row Click
+ */
 @Composable
 internal fun SocialLink(
     @DrawableRes iconRes: Int,

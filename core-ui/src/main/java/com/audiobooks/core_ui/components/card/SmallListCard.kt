@@ -18,6 +18,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.audiobooks.core_ui.R
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * Small image card component
+ *
+ * [modifier] modifier
+ * [image] image composable
+ * [content] inner content of the card
+ */
 @Composable
 fun SmallListImageCard(
     modifier: Modifier = Modifier,

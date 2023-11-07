@@ -8,6 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 
+/**
+ * Base container for bottom nav bar and app content
+ * [navController] is used to navigate through the graph
+ * [content] app content
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BottomBarScaffold(navController: NavController, content: @Composable () -> Unit) {

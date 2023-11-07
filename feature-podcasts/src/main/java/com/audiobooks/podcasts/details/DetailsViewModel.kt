@@ -7,6 +7,10 @@ import com.audiobooks.podcasts.details.state.DetailsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+/**
+ * Details Screen view model example
+ *
+ */
 @HiltViewModel
 internal class DetailsViewModel @Inject constructor(): ViewModel() {
     private val _detailsState = mutableStateOf(DetailsState())

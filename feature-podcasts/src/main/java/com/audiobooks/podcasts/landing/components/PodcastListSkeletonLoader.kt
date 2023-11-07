@@ -8,6 +8,11 @@ import com.audiobooks.core_ui.components.card.MediumListImageCard
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
 private const val NUMBER_OF_SKELETON_CARDS = 3
+
+/**
+ * Podcast skeleton loader state component
+ *
+ */
 internal fun LazyListScope.podcastListSkeletonLoader() {
     items(NUMBER_OF_SKELETON_CARDS) {
         MediumListImageCard(isFavorite = true, isLoading = true)

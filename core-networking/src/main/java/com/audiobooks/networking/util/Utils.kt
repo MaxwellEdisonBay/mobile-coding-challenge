@@ -6,6 +6,11 @@ import com.audiobooks.networking.BuildConfig
 import com.audiobooks.networking.dto.PodcastsListRs
 import java.util.UUID
 
+/**
+ * Converts PodcastsListRs DTO object to domain
+ *
+ * @return [PodcastsPage] instance
+ */
 internal fun PodcastsListRs.toPage(): PodcastsPage {
     return PodcastsPage(
         nextOffset = nextOffset ?: 0,

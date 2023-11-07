@@ -5,7 +5,12 @@ import androidx.lifecycle.ViewModel
 import com.audiobooks.core.domain.Podcast
 import javax.inject.Inject
 
-class SharedViewModel @Inject constructor(
+/**
+ * Viewmodel to store shared data between Podcasts pages.
+ * It's attached to podcasts nav graph lifecycle.
+ *
+ */
+internal class SharedViewModel @Inject constructor(
 
 ) : ViewModel() {
     internal var favourite = mutableStateOf(emptyList<String>())

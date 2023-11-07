@@ -8,6 +8,11 @@ import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 
+/**
+ * Helper function to provide access to sharedVM
+ * @param navController controls navigation
+ * @param parentRoute route of the current parent
+ */
 @Composable
 fun rememberParentViewModelStoreOwner(
     navController: NavController,
@@ -21,6 +26,11 @@ fun rememberParentViewModelStoreOwner(
     }
 }
 
+/**
+ * Gets a sharedVM attached to the current nav graph.
+ *
+ * @param navController it allows navigation
+ */
 @Composable
 inline fun <reified VM : ViewModel> NavBackStackEntry.parentViewModel(
     navController: NavController

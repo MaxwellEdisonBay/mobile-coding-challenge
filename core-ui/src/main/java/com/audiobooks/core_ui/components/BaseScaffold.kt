@@ -14,6 +14,15 @@ import com.audiobooks.core_ui.components.topbar.TopAppBarConfig
 import com.audiobooks.core_ui.components.topbar.TopBarWithBackNavigation
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * Main container for Screens, handles top bar.
+ *
+ * [navController] handles navigation
+ * [modifier] modifier
+ * [title] page title
+ * [topAppBarConfig] config data class defining top bar appearance
+ * [content] container inner content
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BaseScaffold(
@@ -23,8 +32,6 @@ fun BaseScaffold(
     topAppBarConfig: TopAppBarConfig = TopAppBarConfig(),
     content: @Composable () -> Unit
 ) {
-//    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
-//    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
         topBar = {

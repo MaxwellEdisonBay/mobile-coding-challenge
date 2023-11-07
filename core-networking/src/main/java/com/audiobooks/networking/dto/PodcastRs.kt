@@ -2,6 +2,10 @@ package com.audiobooks.networking.dto
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Podcasts DTO generated from Api JSON response
+ *
+ */
 data class PodcastRs(
     @SerializedName("id") var id: String? = null,
     @SerializedName("image") var image: String? = null,

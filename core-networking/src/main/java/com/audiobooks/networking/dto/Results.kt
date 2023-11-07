@@ -2,6 +2,10 @@ package com.audiobooks.networking.dto
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Results DTO generated from Api JSON response
+ *
+ */
 data class Results(
     @SerializedName("id") var id: String? = null,
     @SerializedName("rss") var rss: String? = null,

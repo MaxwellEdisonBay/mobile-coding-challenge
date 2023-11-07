@@ -12,6 +12,11 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
+/**
+ * Implements podcasts repository
+ *
+ * @property podcastsApi podcasts api retrofit interface injected
+ */
 class PodcastsRepositoryImpl @Inject constructor(
     private val podcastsApi: PodcastsApi
 ): PodcastsRepository {

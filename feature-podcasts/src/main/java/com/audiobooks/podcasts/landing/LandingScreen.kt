@@ -27,6 +27,13 @@ import com.audiobooks.podcasts.landing.components.podcastListSkeletonLoader
 import com.audiobooks.podcasts.navigation.PodcastsRoutes
 import com.audiobooks.podcasts.utils.isFavourite
 
+/**
+ * Landing Screen composable
+ *
+ * @param navController used for navigation
+ * @param sharedViewModel vm to share data between screens
+ * @param viewModel landing screen viewmodel
+ */
 @Composable
 internal fun LandingScreen(
     navController: NavController,
@@ -58,6 +65,17 @@ internal fun LandingScreen(
     )
 }
 
+/**
+ * Landing screen UI. Used for better Preview experience
+ *
+ * @param navController navigation
+ * @param isLoading is loading
+ * @param podcasts podcasts list
+ * @param onInitialLoad on initial podcasts load lambda
+ * @param onPaginationLoad on pagination podcasts load lambda
+ * @param onPodcastItemClick on podcast item click lambda
+ * @param isFavourite is podcast favourite lambda
+ */
 @Composable
 private fun LandingScreenContent(
     navController: NavController,

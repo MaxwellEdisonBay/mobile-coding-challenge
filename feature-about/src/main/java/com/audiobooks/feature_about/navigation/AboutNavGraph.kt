@@ -10,6 +10,11 @@ import com.audiobooks.core_ui.util.exitTransition
 import com.audiobooks.core_ui.util.popEnterTransition
 import com.audiobooks.feature_about.AboutScreen
 
+/**
+ * Injects About routes to the main nav graph. Declare module routes here
+ *
+ * [navController] - controls navigation
+ */
 fun NavGraphBuilder.injectAboutNavGraph(navController: NavController) {
     navigation(
         route = BottomNavGraphs.About.route,

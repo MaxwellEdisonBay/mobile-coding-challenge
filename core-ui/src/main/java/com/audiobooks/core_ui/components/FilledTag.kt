@@ -20,6 +20,14 @@ import com.audiobooks.core_ui.components.modifier.conditional
 import com.audiobooks.core_ui.components.modifier.shimmerEffect
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * Used as a label for specific features
+ *
+ * [text] text on the tag
+ * [modifier] modifier
+ * [icon] icon on the tag
+ * [isLoading] actual loading state
+ */
 @Composable
 fun FilledTag(
     text: String,
@@ -42,7 +50,9 @@ fun FilledTag(
         Spacer(modifier = Modifier.width(PodcastAppTheme.dimensions.paddingSmall))
         icon?.let {
             Icon(
-                modifier = Modifier.padding(vertical = PodcastAppTheme.dimensions.paddingSmall).size(PodcastAppTheme.dimensions.iconImageSmall),
+                modifier = Modifier
+                    .padding(vertical = PodcastAppTheme.dimensions.paddingSmall)
+                    .size(PodcastAppTheme.dimensions.iconImageSmall),
                 imageVector = it,
                 contentDescription = stringResource(id = R.string.core_ui_filled_tag_icon_alt),
                 tint = PodcastAppTheme.colors.background

@@ -15,6 +15,15 @@ import coil.compose.AsyncImage
 import com.audiobooks.core_ui.components.modifier.shimmerEffect
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * Async image loading component
+ *
+ * [contentDescRes] Content description
+ * [modifier] modifier
+ * [url] image remote url
+ * [imageRes] image local resource
+ * [isLoading] laoding state
+ */
 @Composable
 fun RoundedImageAsync(
     @StringRes contentDescRes: Int,

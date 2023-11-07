@@ -13,6 +13,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * Outline card component
+ *
+ */
 @Composable
 fun CustomOutlinedCard() {
     OutlinedCard(

@@ -8,6 +8,12 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import com.audiobooks.core_ui.R
 
+/**
+ * HTML Text Viewer
+ *
+ * [html] text string with html markdown
+ * [modifier] modifier
+ */
 @Composable
 fun HtmlText(html: String, modifier: Modifier = Modifier) {
     AndroidView(

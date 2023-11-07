@@ -8,6 +8,9 @@ import androidx.navigation.compose.rememberNavController
 import com.audiobooks.core_ui.components.bottombar.BottomBarScaffold
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * Main Screen to be displayed in MainActivity
+ */
 @Composable
 internal fun MainScreen() {
     val navController = rememberNavController()

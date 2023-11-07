@@ -1,10 +1,24 @@
 package com.audiobooks.core_ui.components.list
 
 import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import com.audiobooks.core.NUMBER_OF_PODCASTS_LOADED
 import kotlinx.coroutines.flow.distinctUntilChanged
 
+/**
+ * Infinite scroll loading handler.
+ *
+ * [lazyListState] state of the attached lazy list
+ * [buffer] how many items "ahead" before the end of list
+ * [onLoadMore] lambda when load more is triggered
+ */
 @Composable
 fun InfiniteListHandler(
     lazyListState: LazyListState,

@@ -17,6 +17,10 @@ import com.audiobooks.core_ui.navigation.BottomNavGraphs
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
 @Composable
+/**
+ * Bottom navigation bar component
+ * [navController] to navigate through the graph
+ */
 internal fun BottomBar(navController: NavController) {
     val items = listOf(
         BottomNavGraphs.TechStack,

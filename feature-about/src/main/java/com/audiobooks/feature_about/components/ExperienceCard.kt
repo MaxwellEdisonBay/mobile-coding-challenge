@@ -15,6 +15,17 @@ import androidx.compose.ui.res.stringResource
 import com.audiobooks.core_ui.components.card.SmallListImageCard
 import com.audiobooks.core_ui.theme.PodcastAppTheme
 
+/**
+ * SmallListImageCard variation for experience section in About
+ *
+ * @param imageRes image drawable entry
+ * @param imageAlt content desc
+ * @param title card text title
+ * @param employer your employer
+ * @param dates dates of the employment
+ * @param location work location in past
+ * @param desc text description
+ */
 @Composable
 internal fun ExperienceCard(
     @DrawableRes imageRes: Int,
@@ -24,8 +35,7 @@ internal fun ExperienceCard(
     @StringRes dates: Int,
     @StringRes location: Int,
     @StringRes desc: Int,
-
-    ) {
+) {
     SmallListImageCard(
         image = {
             Image(
