@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Favourite button-->
+    <string name="feature_podcast_details_large_image_alt">Podcast Large Image(fr)</string>
+    <string name="feature_podcast_details_favourite_button_favourite">Remove(fr)</string>
+    <string name="feature_podcast_details_favourite_button_add">Add to Favourites(fr)</string>
+
+    <string name="feature_podcast_landing_title">Podcasts(fr)</string>
+</resources>
