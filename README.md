@@ -1,14 +1,11 @@
 # Mobile Developer Coding Challenge
 
-Please read the instructions below carefully before starting the coding challenge.
+## The Result
 
-Once submitted, the mobile team will review your work and get back to you as soon as possible.
 
-## The Goal
-
-You will be building a simple two-screen podcasts app. A basic mockup is provided below:
-
-[![](https://i.imgur.com/yi8w1s8.png)](https://i.imgur.com/yi8w1s8.png)
+| Podcasts List Screen | Details Screen| About Screen | Tech Stack Screen |
+| --- | --- | --- | --- |
+| ![Screenshot_1699270357](https://github.com/MaxwellEdisonBay/mobile-coding-challenge/assets/68398572/acac3eba-c78c-4008-a10a-da82a8e24606) | ![Screenshot_1699399330](https://github.com/MaxwellEdisonBay/mobile-coding-challenge/assets/68398572/f1f01632-7743-45e5-980b-85b3d3666ba6) | ![Screenshot_1699399336](https://github.com/MaxwellEdisonBay/mobile-coding-challenge/assets/68398572/6de3aa74-6776-4a6e-a826-a96e76319dee) | ![Screenshot_1699399340](https://github.com/MaxwellEdisonBay/mobile-coding-challenge/assets/68398572/51d4ebfe-9ba7-426b-8c02-f0bc9436507a)|
 
 #### Screen 1
 
@@ -36,13 +33,12 @@ You will be building a simple two-screen podcasts app. A basic mockup is provide
 - [ ] The list should support pagination, loading 10 items at a time.
 - [ ] Favourite state should be persistent.
 
-## The Evaluation
+## Technologies
 
-Your code will be evaluated based on the following criteria:
+- Jetpack Compose
+- Navigation Compose
+- Retrofit 2
+- Kotlin Coroutines
+- Coil
+- Dagger/Hilt
 
-- [ ] The code should compile.
-- [ ] No crashes, bugs, or compiler warnings.
-- [ ] App operates as outlined above.
-- [ ] Conforms to modern development principles.
-- [ ] Code is easy to understand. Bonus points for documentation.
-- [ ] Commit history is consistent, easy to follow and understand.
