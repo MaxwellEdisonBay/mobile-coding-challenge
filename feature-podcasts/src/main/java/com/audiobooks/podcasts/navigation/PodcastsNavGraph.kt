@@ -28,6 +28,9 @@ fun NavGraphBuilder.injectPodcastsNavGraph(navController: NavController) {
             },
             popEnterTransition = {
                 popEnterTransition
+            },
+            popExitTransition = {
+                popExitTransition
             }
         ) {
             val sharedViewModel: SharedViewModel = it.parentViewModel(navController = navController)

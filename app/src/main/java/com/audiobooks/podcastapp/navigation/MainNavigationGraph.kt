@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.audiobooks.core_ui.navigation.BottomNavGraphs
+import com.audiobooks.feature_about.navigation.injectAboutNavGraph
+import com.audiobooks.feature_techstack.navigation.injectTechStackNavGraph
 import com.audiobooks.podcasts.navigation.injectPodcastsNavGraph
 
 @Composable
@@ -16,5 +18,7 @@ internal fun MainNavigationGraph(
         startDestination = BottomNavGraphs.Podcasts.route
     ) {
         injectPodcastsNavGraph(navHostController)
+        injectTechStackNavGraph(navHostController)
+        injectAboutNavGraph(navHostController)
     }
 }

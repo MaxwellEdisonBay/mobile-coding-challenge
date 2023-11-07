@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavController
+import com.audiobooks.core_ui.components.modifier.conditional
 import com.audiobooks.core_ui.components.topbar.TopAppBarConfig
 import com.audiobooks.core_ui.components.topbar.TopBarWithBackNavigation
 import com.audiobooks.core_ui.theme.PodcastAppTheme
@@ -37,7 +38,7 @@ fun BaseScaffold(
             )
         },
         containerColor = PodcastAppTheme.colors.background,
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.conditional(topAppBarConfig.isLargeTitle) { nestedScroll(scrollBehavior.nestedScrollConnection) },
     ) { innerPadding ->
         Box(
             modifier = Modifier
