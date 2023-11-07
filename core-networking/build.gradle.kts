@@ -1,6 +1,5 @@
-import com.audiobooks.buildsrc.Dependencies
 import com.audiobooks.buildsrc.Configuration
-import com.audiobooks.buildsrc.Version
+import com.audiobooks.buildsrc.Dependencies
 
 plugins {
     id("com.android.library")

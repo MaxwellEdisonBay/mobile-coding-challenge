@@ -4,8 +4,6 @@ import com.audiobooks.buildsrc.Dependencies
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -44,11 +42,5 @@ dependencies {
     with(Dependencies.AndroidX.Core) {
         implementation(coreKtx)
     }
-    with(Dependencies.Google.DaggerHilt) {
-        implementation(android)
-        kapt(compiler)
-    }
-    implementation(Dependencies.SquareUp.Okhhtp3.okhttp)
-    kapt(Dependencies.AndroidX.Hilt.compiler)
     testImplementation(Dependencies.JUnit.junit4)
 }

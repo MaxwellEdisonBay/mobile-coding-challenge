@@ -26,7 +26,8 @@ object Dependencies {
         }
 
         object Navigation {
-            const val compose = "androidx.navigation:navigation-compose:${Version.navigationCompose}"
+            const val compose =
+                "androidx.navigation:navigation-compose:${Version.navigationCompose}"
         }
 
         object Hilt {
@@ -37,6 +38,7 @@ object Dependencies {
         object Test {
             const val extJunit = "androidx.test.ext:junit:1.1.5"
             const val espresso = "androidx.test.espresso:espresso-core:3.5.1"
+            const val core = "androidx.test:core:1.5.0"
         }
     }
 
@@ -55,15 +57,28 @@ object Dependencies {
         object Coil {
             const val coilCompose = "io.coil-kt:coil-compose:2.5.0"
         }
+
+        object Mockk {
+            const val mockk = "io.mockk:mockk:1.13.4"
+        }
     }
 
     object SquareUp {
         object Okhhtp3 {
             const val okhttp = "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
         }
+
         object Retrofit2 {
             const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
             const val converterGson = "com.squareup.retrofit2:converter-gson:2.9.0"
+        }
+    }
+
+    object Org {
+        object JetBrains {
+            object KotlinX {
+                const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+            }
         }
     }
 }

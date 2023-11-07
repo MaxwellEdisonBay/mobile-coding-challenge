@@ -4,8 +4,8 @@ import com.audiobooks.buildsrc.Configuration
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    kotlin("kapt")
 }
 
 android {
@@ -74,6 +74,10 @@ dependencies {
         kapt(compiler)
     }
     testImplementation(Dependencies.JUnit.junit4)
+    testImplementation(Dependencies.Io.Mockk.mockk)
+    testImplementation(Dependencies.AndroidX.Test.core)
+    testImplementation(Dependencies.Org.JetBrains.KotlinX.coroutineTest)
+
     with(Dependencies.AndroidX.Test) {
         androidTestImplementation(extJunit)
         androidTestImplementation(espresso)

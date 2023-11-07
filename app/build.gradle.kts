@@ -5,8 +5,8 @@ import com.audiobooks.buildsrc.Version
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    kotlin("kapt")
 }
 
 android {
@@ -49,8 +49,9 @@ android {
         kotlinCompilerExtensionVersion = Version.composeCompiler
     }
     packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        resources.excludes.apply {
+            add("META-INF/AL2.0")
+            add("META-INF/LGPL2.1")
         }
     }
 }
