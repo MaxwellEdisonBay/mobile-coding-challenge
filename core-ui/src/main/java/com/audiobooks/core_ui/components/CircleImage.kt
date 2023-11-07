@@ -14,18 +14,20 @@ import androidx.compose.ui.res.stringResource
  * Circle image component. Used for user avatars
  *
  * [imageRes] image drawable resource
- * [imageAlt] image content description
  * [modifier] modifier
+ * [imageAlt] image content description resource
+ * [imageAltStr] image content description string
  */
 @Composable
 fun CircleImage(
     @DrawableRes imageRes: Int,
-    @StringRes imageAlt: Int,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    @StringRes imageAlt: Int = -1,
+    imageAltStr: String = "",
 ) {
     Image(
         modifier = modifier.clip(CircleShape),
         painter = painterResource(id = imageRes),
-        contentDescription = stringResource(id = imageAlt)
+        contentDescription = imageAltStr.ifBlank { stringResource(id = imageAlt) }
     )
 }

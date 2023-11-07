@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_techstack_screen_title">Tech Stack(fr)</string>
+
+    <string-array name="feature_techstack_screen_image_alts">
+        <item>Android SDK Image(fr)</item>
+        <item>Kotlin Image(fr)</item>
+        <item>Gradle Image(fr)</item>
+        <item>Jetpack Compose Image(fr)</item>
+        <item>Dagger / Hilt Image(fr)</item>
+        <item>Retrofit 2 Image(fr)</item>
+        <item>Coil Image(fr)</item>
+    </string-array>
+
+    <string-array name="feature_techstack_screen_descs">
+        <item>Coroutines, Single-Activity approach(fr)</item>
+        <item>Null-safe data management(fr)</item>
+        <item>Multi-module project, Build variables, Dependency management(fr)</item>
+        <item>Material 3, Navigation Compose, Animation(fr)</item>
+        <item>Module dependency injection(fr)</item>
+        <item>Networking layer(fr)</item>
+        <item>Async image loading from remote(fr)</item>
+    </string-array>
+
+    <string-array name="feature_techstack_screen_titles">
+        <item>Android SDK(fr)</item>
+        <item>Kotlin(fr)</item>
+        <item>Gradle(fr)</item>
+        <item>Jetpack Compose(fr)(fr)</item>
+        <item>Dagger / Hilt(fr)</item>
+        <item>Retrofit 2(fr)</item>
+        <item>Coil(fr)</item>
+    </string-array>
+</resources>

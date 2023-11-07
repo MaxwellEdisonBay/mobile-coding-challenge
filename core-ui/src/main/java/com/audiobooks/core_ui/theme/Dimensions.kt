@@ -15,6 +15,7 @@ data class AppDimensions(
 
     val cardImageSmall: Dp = 50.dp,
     val cardImageMedium: Dp = 100.dp,
+    val cardImageLarge: Dp = 150.dp,
 
     val iconImageSmall: Dp = 16.dp,
     val iconImageMedium: Dp = 20.dp,
