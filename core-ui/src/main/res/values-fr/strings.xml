@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Top App Bar text-->
+    <string name="core_ui_top_nav_back_icon_alt">Tap to navigate back(fr)</string>
+    <string name="core_ui_top_nav_back_text">Back(fr)</string>
+
+    <!--    Bottom Navigation Bar text-->
+    <string name="core_ui_bottom_nav_podcasts_name">Podcasts(fr)</string>
+    <string name="core_ui_bottom_nav_podcasts_name_alt">Open Podcasts Tab(fr)</string>
+    <string name="core_ui_bottom_nav_about_name">About(fr)</string>
+    <string name="core_ui_bottom_nav_about_name_alt">Open About Tab(fr)</string>
+    <string name="core_ui_bottom_nav_techstack_name">Tech Stack(fr)</string>
+    <string name="core_ui_bottom_nav_techstack_name_alt">Open Tech Stack Tab(fr)</string>
+
+    <!--    Card Component text-->
+    <string name="core_ui_card_image_alt">Podcast Image(fr)</string>
+    <string name="core_ui_card_favourite_text">Favourite(fr)</string>
+
+    <!--    Filled Tag Component text-->
+    <string name="core_ui_filled_tag_icon_alt">Favourite icon(fr)</string>
+
+</resources>
