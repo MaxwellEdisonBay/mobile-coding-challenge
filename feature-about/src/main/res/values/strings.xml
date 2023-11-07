@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="feature_about_screen_title">About</string>
+    <string name="feature_about_screen_title">Ivan Teslenko</string>
+
     <string name="feature_about_screen_linkedin_url" translatable="false">https://www.linkedin.com/in/ivan-teslenko/</string>
+    <string name="feature_about_screen_github_url" translatable="false">https://github.com/MaxwellEdisonBay</string>
+    <string name="feature_about_screen_email" translatable="false">mailto:ivanteslenkopraha@gmail.com</string>
+
+    <string name="feature_about_screen_social_github">Github Projects</string>
+    <string name="feature_about_screen_social_linkedin">More on LinkedIn</string>
+    <string name="feature_about_screen_social_email">Send an Email</string>
+
+    <string name="feature_about_screen_ivan_photo_alt_text">Ivan</string>
+
+
+
+    <string name="feature_about_screen_bio_text">Detailed-oriented professional with experience in Software Development delivering efficient code focused on team collaboration and constant self-improvement.</string>
+
+    <string name="feature_about_screen_experience_section_title">Experience</string>
+    <string name="feature_about_screen_logo_td_alt_text">TD Bank Logo</string>
+    <string name="feature_about_screen_td_title_text">Software Engineer</string>
+    <string name="feature_about_screen_td_employer_text">TD</string>
+    <string name="feature_about_screen_td_dates_text">Nov 2022 - Present / 1 year 1 month</string>
+    <string name="feature_about_screen_td_location_text">Toronto, Ontario, Canada</string>
+    <string name="feature_about_screen_td_desc_text">- Working on TD Banking App Loyalty &amp; Rewards feature projects and bug fixes.\n- Proactively working on legacy codebase improvement.</string>
+
+    <string name="feature_about_screen_logo_cleverlance_alt_text">Cleverlance Logo</string>
+    <string name="feature_about_screen_cleverlance_title_text">Android Developer</string>
+    <string name="feature_about_screen_cleverlance_employer_text">Cleverlance</string>
+    <string name="feature_about_screen_cleverlance_dates_text">Jan 2022 - Nov 2022 / 11 months</string>
+    <string name="feature_about_screen_cleverlance_location_text">Prague, Czechia</string>
+    <string name="feature_about_screen_cleverlance_desc_text">- Implemented employee tracking Wear OS project for Albert supermarket chain from scratch.
+\n- Successfully provided feature work and improvements on the Czech government COVID app Tečka.
+\n- Worked on legacy codebase maintenance, and tested products on-site.</string>
+
+    <string name="feature_about_screen_logo_megaknihy_alt_text">Megaknihy.cz Logo</string>
+    <string name="feature_about_screen_megaknihy_title_text">Data Analyst</string>
+    <string name="feature_about_screen_megaknihy_employer_text">Megaknihy.cz</string>
+    <string name="feature_about_screen_megaknihy_dates_text">Sep 2020 - May 2022 / 1 year 9 months</string>
+    <string name="feature_about_screen_megaknihy_location_text">Prague, Czechia</string>
+    <string name="feature_about_screen_megaknihy_desc_text">- Implemented customer support ML classification system with 95% model accuracy. That improved department efficiency by 15%.
+\n- Provided business management with data analytics resulting in achieving predicted sales growth.
+\n- Contributed to warehouse optimization project implementing the mathematical model.</string>
+
+
 </resources>
